@@ -1,0 +1,15 @@
+README.md.asc
+*.so
+go
+vendor
+*log*
+*err*
+config/config
+config/i2pconfig
+config/.*
+i2p/config
+i2p/i2pconfig
+*/config
+*/i2pconfig
+*/*.i2pkeys
+*.i2pkeys
