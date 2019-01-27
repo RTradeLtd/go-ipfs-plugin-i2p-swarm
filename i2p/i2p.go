@@ -28,7 +28,7 @@ type I2PSwarmPlugin struct {
 // that use it.
 var I2PType = "i2pgate"
 
-var _ plugin.Plugin = (*I2PSwarmPlugin)(nil)
+var _ plugin.PluginTracer = (*I2PSwarmPlugin)(nil)
 
 // Name returns the plugin's name, satisfying the plugin.Plugin interface.
 func (*I2PSwarmPlugin) Name() string {
