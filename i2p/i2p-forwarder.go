@@ -9,7 +9,7 @@ import (
 )
 
 func (i *I2PSwarmPlugin) transportSwarm() error {
-    log.Println("Creating an i2p destination for the Swarm Server")
+	log.Println("Creating an i2p destination for the Swarm Server")
 	host, err := i.i2pconfig.SwarmHost()
 	if err != nil {
 		return err

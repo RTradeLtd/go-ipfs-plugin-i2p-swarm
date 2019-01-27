@@ -115,9 +115,9 @@ func (i I2PSwarmPlugin) configGateway() error {
 
 func (i *I2PSwarmPlugin) swarmString() string {
 	rpcaddress := ""
-    for _, v := range i.config.Addresses.Swarm{
-        rpcaddress += v
-    }
+	for _, v := range i.config.Addresses.Swarm {
+		rpcaddress += v
+	}
 	return unquote(string(rpcaddress))
 }
 
