@@ -137,5 +137,5 @@ func unquote(s string) string {
 }
 
 func (*I2PSwarmPlugin) InitTracer() (opentracing.Tracer, error) {
-	return nil, nil
+	return opentracing.NoopTracer{}, nil
 }
