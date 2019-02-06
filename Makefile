@@ -15,6 +15,8 @@ build: go-ipfs-plugin-i2p-swarm.so
 
 clean:
 	rm -f go-ipfs-plugin-i2p-swarm.so
+	find . -name '*.i2pkeys' -exec rm -vf {} \;
+	find . -name '*i2pconfig' -exec rm -vf {} \;
 
 install: build
 	mkdir -p $(IPFS_PATH)/plugins

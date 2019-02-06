@@ -7,11 +7,11 @@ import (
 
 	"github.com/rtradeltd/go-ipfs-plugin-i2p-gateway/config"
 	//TODO: Get a better understanding of gx.
+    coreiface "github.com/ipsn/go-ipfs/core/coreapi/interface"
 	config "github.com/ipsn/go-ipfs/gxlibs/github.com/ipfs/go-ipfs-config"
 	plugin "github.com/ipsn/go-ipfs/plugin"
 	fsrepo "github.com/ipsn/go-ipfs/repo/fsrepo"
 	peer "github.com/libp2p/go-libp2p-peer"
-    "github.com/opentracing/opentracing-go"
 )
 
 type I2PSwarmPlugin struct {
@@ -28,7 +28,7 @@ type I2PSwarmPlugin struct {
 // that use it.
 var I2PType = "i2pgate"
 
-var _ plugin.PluginTracer = (*I2PSwarmPlugin)(nil)
+var _ plugin.PluginDaemon = (*I2PSwarmPlugin)(nil)
 
 // Name returns the plugin's name, satisfying the plugin.Plugin interface.
 func (*I2PSwarmPlugin) Name() string {
@@ -136,6 +136,14 @@ func unquote(s string) string {
 	return strings.Replace(s, "\"", "", -1)
 }
 
-func (*I2PSwarmPlugin) InitTracer() (opentracing.Tracer, error) {
-	return nil, nil
+// Start starts the tunnels and also satisfies the Daemon plugin interface
+func (i *I2PGatePlugin) Start(coreiface.CoreAPI) error {
+	go i.transportHTTP()
+	go i.transportRPC()
+	return nil
+}
+
+// Close satisfies the Daemon plugin interface
+func (*I2PGatePlugin) Close() error {
+	return nil
 }
