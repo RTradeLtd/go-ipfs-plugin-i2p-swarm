@@ -44,21 +44,7 @@ func (*I2PSwarmPlugin) Version() string {
 // initialization logic here.
 func (i *I2PSwarmPlugin) Init() error {
 	var err error
-	i.configPath, err = fsrepo.BestKnownPath()
-	if err != nil {
-		return err
-	}
-	err = os.Setenv("KEYS_PATH", i.configPath)
-	if err != nil {
-		return err
-	}
-	i.config, err = fsrepo.ConfigAt(i.configPath)
-	if err != nil {
-		return err
-	}
-	i.forwardSwarm = i.swarmString()
-
-	i.i2pconfig, err = i2pgateconfig.ConfigAt(i.configPath)
+    i, err = Setup()
 	if err != nil {
 		return err
 	}
@@ -72,7 +58,6 @@ func (i *I2PSwarmPlugin) Init() error {
 	if err != nil {
 		return err
 	}
-	go i.transportSwarm()
 	return nil
 }
 
@@ -137,13 +122,12 @@ func unquote(s string) string {
 }
 
 // Start starts the tunnels and also satisfies the Daemon plugin interface
-func (i *I2PGatePlugin) Start(coreiface.CoreAPI) error {
-	go i.transportHTTP()
-	go i.transportRPC()
+func (i *I2PSwarmPlugin) Start(coreiface.CoreAPI) error {
+	go i.transportSwarm()
 	return nil
 }
 
 // Close satisfies the Daemon plugin interface
-func (*I2PGatePlugin) Close() error {
+func (*I2PSwarmPlugin) Close() error {
 	return nil
 }
