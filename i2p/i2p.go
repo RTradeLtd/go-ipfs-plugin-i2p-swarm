@@ -7,7 +7,7 @@ import (
 
 	"github.com/rtradeltd/go-ipfs-plugin-i2p-gateway/config"
 	//TODO: Get a better understanding of gx.
-    coreiface "github.com/ipsn/go-ipfs/core/coreapi/interface"
+	coreiface "github.com/ipsn/go-ipfs/core/coreapi/interface"
 	config "github.com/ipsn/go-ipfs/gxlibs/github.com/ipfs/go-ipfs-config"
 	plugin "github.com/ipsn/go-ipfs/plugin"
 	fsrepo "github.com/ipsn/go-ipfs/repo/fsrepo"
@@ -26,13 +26,13 @@ type I2PSwarmPlugin struct {
 
 // I2PType will be used to identify this as the i2p gateway plugin to things
 // that use it.
-var I2PType = "i2pgate"
+var I2PType = "i2pswarm"
 
 var _ plugin.PluginDaemon = (*I2PSwarmPlugin)(nil)
 
 // Name returns the plugin's name, satisfying the plugin.Plugin interface.
 func (*I2PSwarmPlugin) Name() string {
-	return "fwd-i2pgate"
+	return "fwd-i2pswarm"
 }
 
 // Version returns the plugin's version, satisfying the plugin.Plugin interface.
@@ -44,7 +44,7 @@ func (*I2PSwarmPlugin) Version() string {
 // initialization logic here.
 func (i *I2PSwarmPlugin) Init() error {
 	var err error
-    i, err = Setup()
+	i, err = Setup()
 	if err != nil {
 		return err
 	}
