@@ -7,5 +7,5 @@ import (
 
 // Plugins is an exported list of plugins that will be loaded by go-ipfs.
 var Plugins = []plugin.Plugin{
-	&i2p.I2PGatePlugin{},
+	&i2p.I2PSwarmPlugin{},
 }
