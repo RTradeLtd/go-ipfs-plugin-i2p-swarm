@@ -8,7 +8,7 @@ import (
 	"github.com/rtradeltd/go-ipfs-plugin-i2p-gateway/config"
 	//TODO: Get a better understanding of gx.
 	coreiface "github.com/ipfs/go-ipfs/core/coreapi/interface"
-	config "github.com/ipfs/go-ipfs/gxlibs/github.com/ipfs/go-ipfs-config"
+	config "github.com/ipfs/go-ipfs/go-ipfs-config"
 	plugin "github.com/ipfs/go-ipfs/plugin"
 	fsrepo "github.com/ipfs/go-ipfs/repo/fsrepo"
 )
