@@ -39,8 +39,9 @@ docker:
 	docker build -f Dockerfile.build -t eyedeekay/go-ipfs-plugin-build .
 
 deps:
+	go get -u github.com/ipfs/go-ipfs-config
 	go get -u github.com/rtradeltd/go-ipfs-plugin-i2p-gateway/config
-	$(GX_GO_PATH) get -u github.com/rtradeltd/go-ipfs-plugin-i2p-swarm/i2p
+	$(GX_GO_PATH) get github.com/rtradeltd/go-ipfs-plugin-i2p-swarm
 
 clobber:
 	rm -rf $(GOPATH)
@@ -56,3 +57,6 @@ gx-install:
 
 test:
 	go test ./i2p -v
+
+import:
+	gx import github.com/ipfs/go-ipfs
