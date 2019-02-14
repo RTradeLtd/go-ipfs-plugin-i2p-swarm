@@ -27,7 +27,7 @@ plugin-libp2p:
 
 deps:
 	go get -u github.com/RTradeLtd/go-garlic-tcp-transport
-	go get -u github.com/RTradeLtd/go-ipfs-plugin-i2p-swarm/config
+	go get -u github.com/RTradeLtd/go-ipfs-plugin-i2p-gateway/config
 	$(GX_GO_PATH) get github.com/RTradeLtd/go-ipfs-plugin-i2p-swarm
 
 clobber:
@@ -37,14 +37,12 @@ b:
 	go build ./i2p
 
 fmt:
-	find ./i2p ./config -name '*.go' -exec gofmt -w {} \;
+	find ./i2p -name '*.go' -exec gofmt -w {} \;
 
 test:
-	go test ./config -v
 	go test ./i2p -v
 
 vet:
-	go vet ./config
 	go vet ./i2p
 
 import:
