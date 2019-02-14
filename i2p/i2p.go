@@ -7,10 +7,10 @@ import (
 
 	"github.com/rtradeltd/go-ipfs-plugin-i2p-gateway/config"
 	//TODO: Get a better understanding of gx.
-	coreiface "github.com/ipfs/go-ipfs/core/coreapi/interface"
-	config "github.com/ipfs/go-ipfs/go-ipfs-config"
-	plugin "github.com/ipfs/go-ipfs/plugin"
-	fsrepo "github.com/ipfs/go-ipfs/repo/fsrepo"
+	coreiface "gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/core/coreapi/interface"
+	config "gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/go-ipfs-config"
+	plugin "gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/plugin"
+	fsrepo "gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/repo/fsrepo"
 )
 
 type I2PSwarmPlugin struct {

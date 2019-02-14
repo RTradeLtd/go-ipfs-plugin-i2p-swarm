@@ -49,7 +49,7 @@ plugin-libp2p:
 # fetch dependencies
 .PHONY: deps
 deps:
-	go get github.com/RTradeLtd/go-ipfs-plugin-i2p-swarm/i2p
+	go get -u github.com/RTradeLtd/go-ipfs-plugin-i2p-swarm/i2p
 	gx-go get github.com/RTradeLtd/go-ipfs-plugin-i2p-swarm
 
 # build i2p  folder
